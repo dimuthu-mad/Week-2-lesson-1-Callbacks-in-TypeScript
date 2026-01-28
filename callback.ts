@@ -1,119 +1,119 @@
 
 //1) Hello Callback 
 
-// type CallbackFunction = ()=> void;
-// const callFunction = (callbackFunction: CallbackFunction)=>{
-//     callbackFunction();
-// }
+type CallbackFunction = ()=> void;
+const callFunction = (callbackFunction: CallbackFunction)=>{
+    callbackFunction();
+}
 
-// const callbackFunction= ()=>{
-//   console.log("Hello from callback");  
-// }
+const callbackFunction= ()=>{
+  console.log("Hello from callback");  
+}
 
-// callFunction(callbackFunction);
+callFunction(callbackFunction);
 
 //2) Delayed Greeting 
-// type CallbackFunction = ()=> void;
+type CallbackFunction = ()=> void;
 
-// const sayHelloLater =(callbackFunction: CallbackFunction)=>{
-//     setTimeout(()=>{
-// callbackFunction();
-//     },2000)
-// }
+const sayHelloLater =(callbackFunction: CallbackFunction)=>{
+    setTimeout(()=>{
+callbackFunction();
+    },2000)
+}
 
-// const callbackFunction=()=>{
-//     console.log("Hi, I am late!");
-// }
+const callbackFunction=()=>{
+    console.log("Hi, I am late!");
+}
 
-// sayHelloLater(callbackFunction);
+sayHelloLater(callbackFunction);
 
 //3) Data Fetching Simulation
 
-// type callbackFunction=(sum: any) => void
-// const addNumber=(a:number,b:number,callBack:callbackFunction)=>{
-//     const sum=a+b;
-//     callBack(sum);
-// }
+type callbackFunction=(sum: any) => void
+const addNumber=(a:number,b:number,callBack:callbackFunction)=>{
+    const sum=a+b;
+    callBack(sum);
+}
 
-// const callBack=(sum:number)=>{
-//     console.log("The sum is:", sum);
-// }
+const callBack=(sum:number)=>{
+    console.log("The sum is:", sum);
+}
 
-// addNumber(4,2,callBack);
+addNumber(4,2,callBack);
 
 //4) Uppercase Callback
 
-// type upperCaseCallbackFunction=(uppercaseText: any) => void;
-// const upperCase=(text:string,upperCaseCallback:upperCaseCallbackFunction)=>{
-// const uppercaseText=text.toUpperCase();
-// upperCaseCallback(uppercaseText);
-// }
+type upperCaseCallbackFunction=(uppercaseText: any) => void;
+const upperCase=(text:string,upperCaseCallback:upperCaseCallbackFunction)=>{
+const uppercaseText=text.toUpperCase();
+upperCaseCallback(uppercaseText);
+}
 
-// const upperCaseCallback=(uppercaseText:string)=>{
-//     console.log(uppercaseText);
-// }
+const upperCaseCallback=(uppercaseText:string)=>{
+    console.log(uppercaseText);
+}
 
-// upperCase("Learn Callbacks",upperCaseCallback);
+upperCase("Learn Callbacks",upperCaseCallback);
 
 //5) Pizza Order
-// type pizzaReadyCallbackFunction=(text: string) => void
-// const orderPizza=(pizzaReadyCallback:pizzaReadyCallbackFunction)=>{
-//     pizzaReadyCallback("Your pizza is ready!");
-// }
+type pizzaReadyCallbackFunction=(text: string) => void
+const orderPizza=(pizzaReadyCallback:pizzaReadyCallbackFunction)=>{
+    pizzaReadyCallback("Your pizza is ready!");
+}
 
-// const pizzaReadyCallback=(text:string)=>{
-//     console.log(text);
-// }
+const pizzaReadyCallback=(text:string)=>{
+    console.log(text);
+}
 
-// orderPizza(pizzaReadyCallback);
+orderPizza(pizzaReadyCallback);
 
 
 //6) Multiple Messages
-// type multipleCallbacksFunction=(text: string) => void;
-// const multipleMessage = (multipleCallbacks: multipleCallbacksFunction) => {
-//     for (let i = 1; i <= 3; i++) {
-//         multipleCallbacks('Message ' + i);
-//     }
-// }
+type multipleCallbacksFunction=(text: string) => void;
+const multipleMessage = (multipleCallbacks: multipleCallbacksFunction) => {
+    for (let i = 1; i <= 3; i++) {
+        multipleCallbacks('Message ' + i);
+    }
+}
 
-// const multipleCallbacks = (text:string) =>{
-//     console.log(text);
-// }
+const multipleCallbacks = (text:string) =>{
+    console.log(text);
+}
 
-// multipleMessage(multipleCallbacks);
+multipleMessage(multipleCallbacks);
 
 
 //7) Download Simulation
 
-// const downloadFile = (url: string, downloadCallback: (status: string) => void) => {
-//     const text= `Downloaded data from ${url}...`;
-//     setTimeout(() => {
-//         downloadCallback(text);
-//     }, 2000);
-// }
+const downloadFile = (url: string, downloadCallback: (status: string) => void) => {
+    const text= `Downloaded data from ${url}...`;
+    setTimeout(() => {
+        downloadCallback(text);
+    }, 2000);
+}
 
-// const downloadCallback = (status: string) => {
-//     console.log(status);
-// }   
+const downloadCallback = (status: string) => {
+    console.log(status);
+}   
 
-// downloadFile("http://exampleDownload.com/file", downloadCallback);
+downloadFile("http://exampleDownload.com/file", downloadCallback);
 
 //8) Success and Error Callback
-// type successCallbackFunction = () => void;
-// type errorCallbackFunction = () => void;
-// const randomDecide=(successCallback:successCallbackFunction,errorCallback:errorCallbackFunction)=>{
-// Math.random() > 0.5 ? successCallback() : errorCallback();
-// }
+type successCallbackFunction = () => void;
+type errorCallbackFunction = () => void;
+const randomDecide=(successCallback:successCallbackFunction,errorCallback:errorCallbackFunction)=>{
+Math.random() > 0.5 ? successCallback() : errorCallback();
+}
 
-// const successCallback=()=>{
-//     console.log("Operation was successful!");
-// }
+const successCallback=()=>{
+    console.log("Operation was successful!");
+}
 
-// const errorCallback=()=>{
-//     console.log("Operation failed!");
-// }
+const errorCallback=()=>{
+    console.log("Operation failed!");
+}
 
-// randomDecide(successCallback,errorCallback);
+randomDecide(successCallback,errorCallback);
 
 
 //9) Math with Different Operations
@@ -147,3 +147,38 @@ const operationCallback = (result: number, operation: string) => {
 }
 
 performOperation(25, 5,"multiply", operationCallback);
+
+
+//10) Chained Callbacks
+
+const mainCall=(firstCallback:(index: number) => void,secondCallback:(index: number) => void,thirdCallback:(index: number) => void)=>{
+    for(let i=1;i<=3;i++){
+        if(i==1){
+            setTimeout(()=>{
+            firstCallback(i);
+        }, 1000);
+        }
+        else if(i==2){
+            setTimeout(()=>{
+            secondCallback(i);
+              }, 1000);
+        }
+        else{
+             setTimeout(()=>{
+            thirdCallback(i);
+            }, 1000);
+        }
+    }
+}
+
+const firstCallback=(index:number)=>{
+    console.log("Step "+index+" done");
+}
+const secondCallback=(index:number)=>{
+    console.log("Step "+index+" done");
+}
+const thirdCallback=(index:number)=>{
+    console.log("Step "+index+" done");
+}
+
+mainCall(firstCallback,secondCallback,thirdCallback);
