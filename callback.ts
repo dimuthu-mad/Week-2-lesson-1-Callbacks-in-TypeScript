@@ -99,18 +99,51 @@
 // downloadFile("http://exampleDownload.com/file", downloadCallback);
 
 //8) Success and Error Callback
-type successCallbackFunction = () => void;
-type errorCallbackFunction = () => void;
-const randomDecide=(successCallback:successCallbackFunction,errorCallback:errorCallbackFunction)=>{
-Math.random() > 0.5 ? successCallback() : errorCallback();
+// type successCallbackFunction = () => void;
+// type errorCallbackFunction = () => void;
+// const randomDecide=(successCallback:successCallbackFunction,errorCallback:errorCallbackFunction)=>{
+// Math.random() > 0.5 ? successCallback() : errorCallback();
+// }
+
+// const successCallback=()=>{
+//     console.log("Operation was successful!");
+// }
+
+// const errorCallback=()=>{
+//     console.log("Operation failed!");
+// }
+
+// randomDecide(successCallback,errorCallback);
+
+
+//9) Math with Different Operations
+type operationCallbackFunction = (result: number, operation: string) => void
+const performOperation = (a: number, b: number, operation: string,operationCallback:operationCallbackFunction )  => {
+    switch (operation) {
+        case "add":
+            const addition = a+b;
+            operationCallback(addition,operation);
+            break;
+        case "subtract":
+            const subtraction = a-b;
+            operationCallback(subtraction,operation);
+            break
+        case "multiply":
+            const multiplication = a*b;
+            operationCallback(multiplication,operation);
+            break
+        case "divide":
+            const division = a/b;
+            operationCallback(division,operation);
+            break;
+        default:
+            console.log("Invalid operation");
+            break;
+    }
 }
 
-const successCallback=()=>{
-    console.log("Operation was successful!");
+const operationCallback = (result: number, operation: string) => {
+    console.log("Result is :", result+" After "+ operation);
 }
 
-const errorCallback=()=>{
-    console.log("Operation failed!");
-}
-
-randomDecide(successCallback,errorCallback);
+performOperation(25, 5,"multiply", operationCallback);
