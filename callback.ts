@@ -40,3 +40,29 @@
 // }
 
 // addNumber(4,2,callBack);
+
+//4) Uppercase Callback
+
+// type upperCaseCallbackFunction=(uppercaseText: any) => void;
+// const upperCase=(text:string,upperCaseCallback:upperCaseCallbackFunction)=>{
+// const uppercaseText=text.toUpperCase();
+// upperCaseCallback(uppercaseText);
+// }
+
+// const upperCaseCallback=(uppercaseText:string)=>{
+//     console.log(uppercaseText);
+// }
+
+// upperCase("Learn Callbacks",upperCaseCallback);
+
+//5) Pizza Order
+// type pizzaReadyCallbackFunction=(text: string) => void
+// const orderPizza=(pizzaReadyCallback:pizzaReadyCallbackFunction)=>{
+//     pizzaReadyCallback("Your pizza is ready!");
+// }
+
+// const pizzaReadyCallback=(text:string)=>{
+//     console.log(text);
+// }
+
+// orderPizza(pizzaReadyCallback);
