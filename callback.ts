@@ -85,15 +85,32 @@
 
 //7) Download Simulation
 
-const downloadFile = (url: string, downloadCallback: (status: string) => void) => {
-    const text= `Downloaded data from ${url}...`;
-    setTimeout(() => {
-        downloadCallback(text);
-    }, 2000);
+// const downloadFile = (url: string, downloadCallback: (status: string) => void) => {
+//     const text= `Downloaded data from ${url}...`;
+//     setTimeout(() => {
+//         downloadCallback(text);
+//     }, 2000);
+// }
+
+// const downloadCallback = (status: string) => {
+//     console.log(status);
+// }   
+
+// downloadFile("http://exampleDownload.com/file", downloadCallback);
+
+//8) Success and Error Callback
+type successCallbackFunction = () => void;
+type errorCallbackFunction = () => void;
+const randomDecide=(successCallback:successCallbackFunction,errorCallback:errorCallbackFunction)=>{
+Math.random() > 0.5 ? successCallback() : errorCallback();
 }
 
-const downloadCallback = (status: string) => {
-    console.log(status);
-}   
+const successCallback=()=>{
+    console.log("Operation was successful!");
+}
 
-downloadFile("http://exampleDownload.com/file", downloadCallback);
+const errorCallback=()=>{
+    console.log("Operation failed!");
+}
+
+randomDecide(successCallback,errorCallback);
