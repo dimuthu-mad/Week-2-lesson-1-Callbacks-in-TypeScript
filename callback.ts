@@ -66,3 +66,34 @@
 // }
 
 // orderPizza(pizzaReadyCallback);
+
+
+//6) Multiple Messages
+// type multipleCallbacksFunction=(text: string) => void;
+// const multipleMessage = (multipleCallbacks: multipleCallbacksFunction) => {
+//     for (let i = 1; i <= 3; i++) {
+//         multipleCallbacks('Message ' + i);
+//     }
+// }
+
+// const multipleCallbacks = (text:string) =>{
+//     console.log(text);
+// }
+
+// multipleMessage(multipleCallbacks);
+
+
+//7) Download Simulation
+
+const downloadFile = (url: string, downloadCallback: (status: string) => void) => {
+    const text= `Downloaded data from ${url}...`;
+    setTimeout(() => {
+        downloadCallback(text);
+    }, 2000);
+}
+
+const downloadCallback = (status: string) => {
+    console.log(status);
+}   
+
+downloadFile("http://exampleDownload.com/file", downloadCallback);
